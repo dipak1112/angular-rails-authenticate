@@ -1,0 +1,34 @@
+{:uriI"~file://app/assets/templates/sites/form.html?type=text/html&id=69a64f96e49a19b2b2b31d6edfe52852e739a9af273ea62c60d8cdb79fb6b415:ET:load_pathI"app/assets/templates;T:filenameI")app/assets/templates/sites/form.html;T:	nameI"sites/form;T:logical_pathI"sites/form.html;T:content_typeI"text/html;T:sourceI"/<div ng-show="serverInvalid()" class="validation-summary">
+    <p>Something is wrong here</p>
+
+</div>
+
+<div id="'errors" ng-show="errors.length > 0">
+   <div class="alert error" ng-repeat="error in errors">
+       {{ error }}
+   </div>
+</div>
+
+
+<form name="myForm" class="form-horizontal" >
+
+    <div class="control-group" ng-class="{error: myForm.name.$invalid}">
+        <label class="control" for="Name">Name</label>
+        <div class="controls">
+            <input type="text" ng-model='site.name' id="name" placeholder="" required>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button class="btn btn-primary"
+                ng-click="save()"
+                ng-disabled="myForm.$invalid || isUnchanged(site)">Save</button>
+        <button class="btn">Cancel</button>
+    </div>
+
+</form>
+;T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"7file-digest://app/assets/templates/sites/form.html;TT:charsetI"
+utf-8;F:digest"%~”Æ–ƒÙ°5ˆ&Å½¨ Â3+®7¦žÙÜ4Ý”L:lengthi/:dependencies_digest"%¸/L^ãdkåp5Š•Ew‰h’>ÛV«³V_¥*Ä—U:idI"E69a64f96e49a19b2b2b31d6edfe52852e739a9af273ea62c60d8cdb79fb6b415;F:
+mtimel+ûºTQ

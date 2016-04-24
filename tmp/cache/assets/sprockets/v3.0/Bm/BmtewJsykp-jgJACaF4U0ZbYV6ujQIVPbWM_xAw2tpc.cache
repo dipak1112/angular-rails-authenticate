@@ -1,0 +1,32 @@
+{:uriI"file://app/assets/templates/sites/index.html?type=text/html&id=a052edd0d5bb0bb20aa09d63568a7762f2309c73cea88f95559b171b05b475e4:ET:load_pathI"app/assets/templates;T:filenameI"*app/assets/templates/sites/index.html;T:	nameI"sites/index;T:logical_pathI"sites/index.html;T:content_typeI"text/html;T:sourceI"ù<h1>Secret Sites</h1>
+
+<p>A collection of sites, only visible to logged in users.</p>
+
+<table class="table table-striped">
+<thead>
+    <th>Name</th>
+    <th>Updated</th>
+    <th>Created</th>
+    <th><a href="sites/new"><i class="icon-plus"></i></a></th>
+</thead>
+    <tbody>
+    <tr ng-repeat="site in sites" id="site_{{site.id}}">
+       <td>{{site.name}}</td>
+        <td>{{site.updated_at | date: 'medium' }}</td>
+        <td>{{site.created_at | date: 'medium' }}</td>
+        <td>
+            <a ng-click="delete()"><i class="icon-remove"></i></a>
+            <a href="/sites/edit/{{site.id}}"><i class="icon-edit"></i></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div ng-show='debug'>
+    <h5>Raw Service Response</h5>
+    <p>{{ sites }} </p>
+</div>;T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"8file-digest://app/assets/templates/sites/index.html;TT:charsetI"
+utf-8;F:digest"%—óÂZbWL-`OËZÂŒ¨*4j²Ûèh×oIl*>Â:lengthiù:dependencies_digest"%•ÐØ×lC:©fFhã8ouÐk_êÁ5ºéžÅ©ÿü:idI"Ea052edd0d5bb0bb20aa09d63568a7762f2309c73cea88f95559b171b05b475e4;F:
+mtimel+ûºTQ

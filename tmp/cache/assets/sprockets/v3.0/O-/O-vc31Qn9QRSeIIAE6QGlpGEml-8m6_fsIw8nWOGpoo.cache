@@ -1,0 +1,28 @@
+{:uriI"~file://app/assets/templates/header.tpl.html?type=text/html&id=db67bae19fb5444db943198f052fc85b0b431f9c1807cb1c6cc7b0bc79b284be:ET:load_pathI"app/assets/templates;T:filenameI")app/assets/templates/header.tpl.html;T:	nameI"header.tpl;T:logical_pathI"header.tpl.html;T:content_typeI"text/html;T:sourceI"Ê<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">Project name</a>
+
+            <div class="nav-collapse collapse">
+                <p class="navbar-text pull-right">
+                    Logged in as <a href="#" class="navbar-link">Username</a>
+                </p>
+                <ul class="nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</div>;T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"7file-digest://app/assets/templates/header.tpl.html;TT:charsetI"
+utf-8;F:digest"%0?]¶;†²$™]Ëzent™¢³4–‰Yi¹7:lengthiÊ:dependencies_digest"%b/Ø•ÌíZVá©«´ù>d2Y}okîÇôC­×LB:idI"Edb67bae19fb5444db943198f052fc85b0b431f9c1807cb1c6cc7b0bc79b284be;F:
+mtimel+ûºTQ
