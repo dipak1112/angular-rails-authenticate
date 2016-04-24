@@ -24,4 +24,5 @@
 //= require app/controllers
 //= require app/security
 //= require app/app
+//= require app/services/UserService.js
 //= require app/cookie.js

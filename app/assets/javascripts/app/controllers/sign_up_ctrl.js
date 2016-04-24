@@ -7,7 +7,7 @@
  //    })
 
 
- window.SignUpCtrl = ['$scope', '$http', 'UserService', '$location', function($scope, $http, UserService, $location) {
+ window.SignUpCtrl = ['$scope', '$http', '$location', function($scope, $http, $location) {
 //     console.log("In SignUpCtrl");
 //     $scope.message = "hello from me, I'm the angularController SiteCtrl";
 
