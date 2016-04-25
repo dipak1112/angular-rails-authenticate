@@ -1,5 +1,6 @@
   var app;
   app = angular.module('app', ['ui.bootstrap','security','app.services', 'app.controllers','app.filters','app.directives', 'ngCookies']);
+  app.constant('config', 'http://localhost:3000/api/v1')
   
   app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
       $locationProvider.html5Mode(true);
