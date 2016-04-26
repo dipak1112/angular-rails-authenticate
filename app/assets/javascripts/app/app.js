@@ -40,6 +40,8 @@
   // (in case they are still logged in from a previous session)
   // security.requestCurrentUser();
    // redirectTo: '/info'
+   console.log('------------------cookieStore')
+   console.log($cookieStore)
     $rootScope.globals = $cookieStore.get('globals') || {};
     if ($rootScope.globals.currentUser) {
       $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; 
@@ -48,6 +50,12 @@
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
             var restrictedPage = $.inArray($location.path(), ['/signup']) === -1;
+            console.log('=------1-------#rootScope---------------------')
+            console.log($rootScope)
+            console.log('=------2-------#rootScope---------------------')
+            console.log($rootScope.globals)
+            console.log('=------3-------#rootScope---------------------')
+            console.log($rootScope.globals.currentUser)
             var loggedIn = $rootScope.globals.currentUser;
             if (restrictedPage && !loggedIn) {
                 $location.path('/signup');

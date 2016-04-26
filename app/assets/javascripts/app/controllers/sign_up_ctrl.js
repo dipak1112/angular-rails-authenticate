@@ -7,7 +7,7 @@
  //    })
 
 
- window.SignUpCtrl = ['$scope', '$http', '$location', function($scope, $http, $location) {
+ window.SignUpCtrl = ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
 //     console.log("In SignUpCtrl");
 //     $scope.message = "hello from me, I'm the angularController SiteCtrl";
 
@@ -27,10 +27,10 @@
 //         // 	alert('failure')
 //         // }
 						$scope.loginProcess = true;
-						UserService.Login($scope.username, $scope.password, function (response) {
+						UserService.Login($scope.user.email, $scope.user.password, function (response) {
 							if (response.success) {
                     UserService.SetCredentials(response.access_token);
-                    UserService.SetUserRole(response.access_token);
+                   // UserService.SetUserRole(response.access_token);
                     $scope.loginProcess = false;
                     $location.path('/info');
 

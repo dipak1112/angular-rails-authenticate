@@ -4,7 +4,7 @@ angular.module('security', [
 
 angular.module('security.service', ['ui.bootstrap.dialog'])
 
-    .factory('security', ['$dialog','$location','Session', '$http','TokenHandler', function ($dialog, $location,Session, $http, tokenHandler) {
+    .factory('security', ['$dialog','$location','Session', '$http', function ($dialog, $location,Session, $http) {
 
         // Redirect to the given url (defaults to '/')
         function redirect(url) {
@@ -54,6 +54,9 @@ angular.module('security.service', ['ui.bootstrap.dialog'])
                 var request = $http.post('/api/v1/login',
                         {user: {email: email, password: password} });
                     return request.then(function(response) {
+                      console.log('-------------------')
+                      console.log(response)
+                      console.log('-------------------'+ response.data)
                     tokenHandler.set( response.data.auth_token );
                     service.currentUser = response.data.user;
                     if ( service.isAuthenticated() ) {

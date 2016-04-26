@@ -11,13 +11,14 @@
         service.Login = Login;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
-        service.SetUserRole = SetUserRole;
+       // service.SetUserRole = SetUserRole;
+       return service;
 
         function Login(username, password, callback) {
             
             /* Use this for real authentication
              ----------------------------------------------*/
-            $http.post(config + '/sessions', { login: username, password: password })
+            $http.post(config + '/login', { login: username, password: password })
                 .success(function (response) {
                     callback(response);
                 })
