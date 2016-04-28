@@ -1,40 +1,0 @@
-{:uriI"file://app/assets/templates/signup.html?type=text/html&id=e5ab61c070794643515b4c1270da0babd0ce7e523cd6dff17c9545471df77601:ET:load_pathI"app/assets/templates;T:filenameI"%app/assets/templates/signup.html;T:	nameI"signup;T:logical_pathI"signup.html;T:content_typeI"text/html;T:sourceI"»<h1>Test</h1>
-<h2>{{message}}</h2>
-
-        <div class="alert alert-warning" ng-show="authReason">
-            {{authReason}}
-        </div>
-        <div class="alert alert-error" ng-show="authError">
-            {{authError}}
-        </div>
-
-<div class="alert alert-info">Please enter your login details</div>
-
-<form name="form" ng-submit="login()" role="form" data-ng-controller= 'SignUpCtrl'>
-  <div class="input-group mb20" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-      
-          <span class="input-group-addon un_txt"><i class="glyphicon glyphicon-user_custom"></i></span>
-          <input type="text" class="form-control" id="username" name="username" class="form-control" ng-model="username" required>
-          <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
-  </div><!-- input-group -->
-  <!-- input-group -->
-  <div class="input-group mb20" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-lock_custom"></i></span>
-          <input type="password" type="password" name="password" id="password" class="form-control" ng-model="password" required>
-
-          <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
-      </div><!-- input-group -->
-  <!-- input-group -->
-
-  <div class="clearfix">
-      <button type="submit"  class="btn btn-orange btn-lg btn-full" ng-disabled="loginProcess">
-          Login 
-          <i class="glyphicon glyphicon-refresh glyphicon-spin" ng-show="loginProcess"> </i>
-      </button>
-  </div>
-</form>
-;T:metadata{	:dependencieso:Set:
-@hash{
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"3file-digest://app/assets/templates/signup.html;TT:charsetI"
-utf-8;F:digest"%ù8Y+‘\F(#¶kW}ôÖkûûú7ÛwMUš¬p?–¥:lengthi»:dependencies_digest"%Ã‚í—ù+¨‰ûØMà¿]ÕX@Ş=†¥øû:idI"Ee5ab61c070794643515b4c1270da0babd0ce7e523cd6dff17c9545471df77601;F:
-mtimel+ÿW

@@ -1,31 +1,0 @@
-{:uriI"file://app/assets/templates/signup.html?type=text/html&id=47c3d4774ece018048d02e82f1933e7578f5aabaa1fd025b66e45134e5818a1e:ET:load_pathI"app/assets/templates;T:filenameI"%app/assets/templates/signup.html;T:	nameI"signup;T:logical_pathI"signup.html;T:content_typeI"text/html;T:sourceI"ë<h1>Test</h1>
-<h2>{{message}}</h2>
-
-<form name="form" ng-submit="login()" role="form" data-ng-controller= 'SignUpCtrl'>
-  <div class="input-group mb20" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-      
-          <span class="input-group-addon un_txt"><i class="glyphicon glyphicon-user_custom"></i></span>
-          <input type="text" class="form-control" id="username" name="username" class="form-control" ng-model="username" required>
-          <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
-  </div><!-- input-group -->
-  <!-- input-group -->
-  <div class="input-group mb20" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-lock_custom"></i></span>
-          <input type="password" type="password" name="password" id="password" class="form-control" ng-model="password" required>
-          <a href="#/forgot-password" class="forgot_pwd">Forgot?</a>
-          <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
-      </div><!-- input-group -->
-  <!-- input-group -->
-
-  <div class="clearfix">
-      <button type="submit"  class="btn btn-orange btn-lg btn-full" ng-disabled="loginProcess">
-          Login 
-          <i class="glyphicon glyphicon-refresh glyphicon-spin" ng-show="loginProcess"> </i>
-      </button>
-  </div>
-</form>
-;T:metadata{	:dependencieso:Set:
-@hash{
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"3file-digest://app/assets/templates/signup.html;TT:charsetI"
-utf-8;F:digest"%§\U_¾=ß{	~˜I‹6âbûRhCx~s‚\7±£¶`:lengthië:dependencies_digest"%ddØi›>L]Ž=ðêr˜~{ÎKåº…MÆÏ»ÊçüÌ:idI"E47c3d4774ece018048d02e82f1933e7578f5aabaa1fd025b66e45134e5818a1e;F:
-mtimel+W

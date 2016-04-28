@@ -1,21 +1,0 @@
-{:uriI"{file://app/assets/templates/toolbar.html?type=text/html&id=6fbb5121b30076a726d8ca5c4d5bf71ed59329fe7550d95b3192139349487ef2:ET:load_pathI"app/assets/templates;T:filenameI"&app/assets/templates/toolbar.html;T:	nameI"toolbar;T:logical_pathI"toolbar.html;T:content_typeI"text/html;T:sourceI"4<ul class="nav pull-right">
-    <li class="divider-vertical"></li>
-    <li ng-show="isAuthenticated()">
-        <a href="#">{{currentUser.email}} {{currentUser.lastName}}</a>
-    </li>
-    <li ng-show="isAuthenticated()" class="logout">
-        <form class="navbar-form">
-            <button class="btn logout" ng-click="logout()">Log out</button>
-        </form>
-    </li>
-    <li ng-hide="isAuthenticated()" class="login">
-        <form class="navbar-form">
-            <button class="btn login" ng-click="login()">Log in</button>
-        </form>
-    </li>
-</ul>;T:metadata{	:dependencieso:Set:
-@hash{
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"4file-digest://app/assets/templates/toolbar.html;TT:charsetI"
-utf-8;F:digest"%"o–úµ—5rÖ¹ß2mGô€åH²
-ëœ¥}ë5»Ú:lengthi4:dependencies_digest"%—#:!ü‘x¡İ +§³_àøÉô=2î2U6õ‡{:idI"E6fbb5121b30076a726d8ca5c4d5bf71ed59329fe7550d95b3192139349487ef2;F:
-mtimel+ûºTQ

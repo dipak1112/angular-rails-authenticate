@@ -1,32 +1,0 @@
-{:uriI"file://app/assets/templates/signup.html?type=text/html&id=3be1ca1fac715fcc3a6751e03538c79f59f6f777e3793a5d5c732621574d8a2b:ET:load_pathI"app/assets/templates;T:filenameI"%app/assets/templates/signup.html;T:	nameI"signup;T:logical_pathI"signup.html;T:content_typeI"text/html;T:sourceI"·<h1>Test</h1>
-<h2>{{message}}</h2>
-
-        <div class="alert alert-warning" ng-show="authReason">
-            {{authReason}}
-        </div>
-        <div class="alert alert-error" ng-show="authError">
-            {{authError}}
-        </div>
-
-<div class="alert alert-info">Please enter your login details</div>
-
-<form name="form" ng-submit="login()" role="form" data-ng-controller= 'SignUpCtrl'>
-        <label>E-mail</label>
-        <input name="login" type="email" ng-model="user.email" required autofocus>
-        <label>Password</label>
-        <input name="pass" type="password" ng-model="user.password" required>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary login" ng-click="login()" ng-disabled='form.$invalid'>Sign in</button>
-        <button class="btn clear" ng-click="clearForm()">Clear</button>
-        <button class="btn btn-warning cancel" ng-click="cancelLogin()">Cancel</button>
-    </div>
-
-</form>
-;T:metadata{	:dependencieso:Set:
-@hash{
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"3file-digest://app/assets/templates/signup.html;TT:charsetI"
-utf-8;F:digest"%
-İé˜pz‘äšõZñOæû¸Øş¼µ·+gÂ¼:lengthi·:dependencies_digest"%eI<!<?i…(»÷”õ£5/ïœù
-I<=gau]‰':idI"E3be1ca1fac715fcc3a6751e03538c79f59f6f777e3793a5d5c732621574d8a2b;F:
-mtimel+âW
