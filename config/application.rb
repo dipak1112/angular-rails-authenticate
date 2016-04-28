@@ -11,5 +11,7 @@ module DemoRailsAngularjs
     config.active_record.raise_in_transactional_callbacks = true
     config.active_record.whitelist_attributes = false
 
+    config.filter_parameters += [:password, :password_confirmation, :credit_card]
+    
   end
 end

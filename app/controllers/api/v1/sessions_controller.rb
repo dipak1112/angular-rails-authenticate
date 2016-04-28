@@ -1,36 +1,61 @@
-class Api::V1::SessionsController < Devise::SessionsController
+class Api::V1::SessionsController < Api::V1::BaseController
 
-  #skip_before_filter :verify_authenticity_token,
-  #                   :if => Proc.new  { |c| c.request.format == 'application/json' }
-  respond_to :json
+  before_filter :login_required, only: [:logout]
 
-  def create
-    logger.warn("========test=======#{params.inspect}=============#{resource_name.inspect}==========")
-    #resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
-    #logger.warn("=====resource====#{resource.inspect}================")
-    current_user = User.last
-    render :status => 200,
-           :json => { :success => true,
-                      :info => "Logged in",
-                      :user => current_user,
-                      :access_token => 'dipakpanchal',
-                      :auth_token => 'dipakpanchal' }
+  def current_user
+    user = User.find(2)
+    auth_token = user.auth_tokens.last
+    
+      render  status: 200, json: { 
+        success: true, 
+        info: "Logged in", 
+        user: user, 
+        access_token: auth_token.authentication_token, 
+        auth_token: auth_token.authentication_token
+      }
+
   end
 
-  def destroy
-    warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
-    current_user.update_column(:authentication_token, nil)
-    sign_out
-    render :status => 200,
-           :json => { :success => true,
-                      :info => "Logged out",
-           }
+  def create ## Login
+    user = User.authenticate_user_with_auth(params[:login], params[:password])
+    if user.present?
+      auth_token = user.auth_tokens.create(authentication_token: AuthToken.generate_unique_token)
+      render  status: 200, json: { 
+        success: true, 
+        info: "Logged in", 
+        user: user, 
+        access_token: auth_token.authentication_token, 
+        auth_token: auth_token.authentication_token
+      }
+    else
+      render_json({
+        errors: User.invalid_credentials, 
+        status: 404
+      }.to_json)
+    end
+  end
+
+  def logout    
+    token = AuthToken.current_auth_token_for_user(@current_user.id, params[:auth_token]).try(:last)
+    if token.present?
+      token.destroy
+      render_json({
+        message: "Logout Successfully!",
+        status: 200
+      }.to_json)
+    else
+      render_json({
+        errors: "No user found with authentication_token = #{params[:auth_token]}",
+        status: 401
+      }.to_json)
+    end    
   end
 
   def failure
-    render :status => 401,
-           :json => { :success => false,
-                      :info => "Login Credentials Failed"
-          }
+    render  status: 401,
+            json: { 
+              success: false,
+              info: "Login Credentials Failed"
+            }
   end
 end

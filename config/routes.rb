@@ -1,26 +1,32 @@
 DemoRailsAngularjs::Application.routes.draw do
 
-
-
-
-  devise_for :users, :skip => :all
-
-  namespace :api, defaults: { format: 'json' } do
+  ## API routes
+  namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-      devise_scope :user do
-
-        post 'login' => 'sessions#create', :as => 'login'
-        #IE8 cannot use Angulars $http.delete() call, at present to keep to post on named route.
-        #delete 'sessions' => 'sessions#destroy', :as => 'session_logout'
-        post 'logout' => 'sessions#destroy', :as => 'logout'
-
-        get 'current_user' => 'users#show_current_user', :as => 'show_current_user'
-      end
-      resources :sites
-
-      get 'info' => 'info#index', :as=>'info'
+      resources :registrations, only: [:create]
+      
+      resources :sessions, only: [:create]
+      delete '/logout/:auth_token' => 'sessions#logout'
+      get '/current_user' => 'sessions#current_user'
     end
   end
+
+  # namespace :api, defaults: { format: 'json' } do
+  #   namespace :v1 do
+  #     devise_scope :user do
+
+  #       post 'login' => 'sessions#create', :as => 'login'
+  #       #IE8 cannot use Angulars $http.delete() call, at present to keep to post on named route.
+  #       #delete 'sessions' => 'sessions#destroy', :as => 'session_logout'
+  #       post 'logout' => 'sessions#destroy', :as => 'logout'
+
+  #       get 'current_user' => 'users#show_current_user', :as => 'show_current_user'
+  #     end
+  #     resources :sites
+
+  #     get 'info' => 'info#index', :as=>'info'
+  #   end
+  # end
 
   #TODO remove this. Reason: if user is in angular app e.g. at /info
   # and reloads, rails is trying to pick that route up.

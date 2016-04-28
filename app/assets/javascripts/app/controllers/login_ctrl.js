@@ -1,4 +1,4 @@
-window.SignUpCtrl = ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
+window.LoginCtrl = ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
   $scope.login = function() {
 		$scope.loginProcess = true;
 		UserService.Login($scope.user.email, $scope.user.password, function (response) {

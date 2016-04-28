@@ -27,11 +27,7 @@ angular.module('app.services', ['app.services']);
 
     app.factory('Session', ['$resource', function($resource){
         console.log('------------------session-------------------------')
-        return $resource('/api/v1/login', {}, {
-
-                'login': {method: 'POST', isArray: true}
-            }
-        )
+        return $resource('/api/v1/sessions');
     }]);
 
     app.factory('Site', ['$resource',function($resource){

@@ -51,8 +51,8 @@ angular.module('security.service', ['ui.bootstrap.dialog'])
             },
 
             login: function(email, password) {
-                var request = $http.post('/api/v1/login',
-                        {user: {email: email, password: password} });
+                var request = $http.post('/api/v1/sessions',
+                        {login: email, password: password});
                     return request.then(function(response) {
                       console.log('-------------------')
                       console.log(response)
@@ -60,7 +60,8 @@ angular.module('security.service', ['ui.bootstrap.dialog'])
                     tokenHandler.set( response.data.auth_token );
                     service.currentUser = response.data.user;
                     if ( service.isAuthenticated() ) {
-                        closeLoginDialog(true);
+                        //closeLoginDialog(true);
+                        $location.path('/info');
                     }
                 });
             },
@@ -76,8 +77,10 @@ angular.module('security.service', ['ui.bootstrap.dialog'])
             // Ask the backend to see if a user is already authenticated - this may be from a previous session.
             requestCurrentUser: function() {
                 if ( service.isAuthenticated() ) {
+                    console.log('-----------------requestCurrentUser-------if-----------')
                     return $q.when(service.currentUser);
                 } else {
+                  console.log('-----------------requestCurrentUser-------else-----------')
                     return $http.get('/api/v1/current_user').then(function(response) {
                         service.currentUser = response.data.user;
                         tokenHandler.set( response.data.auth_token );
@@ -90,6 +93,7 @@ angular.module('security.service', ['ui.bootstrap.dialog'])
             currentUser: null,
 
             isAuthenticated: function(){
+                console.log('-----isAuthenticated--------------')
                 return !!service.currentUser;
             }
         } ;

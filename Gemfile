@@ -58,7 +58,13 @@ group :development do
 end
 
 gem 'protected_attributes'
-gem 'rails-observers'
-gem 'actionpack-page_caching'
-gem 'actionpack-action_caching'
-gem 'activerecord-deprecated_finders'
+gem 'railties'
+gem 'exception_notification'
+
+#gem 'rails-observers'
+#gem 'actionpack-page_caching'
+#gem 'actionpack-action_caching'
+#gem 'activerecord-deprecated_finders'
+
+gem 'rabl'
+gem 'oj'

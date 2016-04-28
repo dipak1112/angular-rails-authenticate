@@ -1,0 +1,25 @@
+<h1>Test</h1>
+<h2>{{message}}</h2>
+
+        <div class="alert alert-warning" ng-show="authReason">
+            {{authReason}}
+        </div>
+        <div class="alert alert-error" ng-show="authError">
+            {{authError}}
+        </div>
+
+<div class="alert alert-info">Please enter your login details</div>
+
+<form name="form" ng-submit="login()" role="form" data-ng-controller= 'LoginCtrl'>
+        <label>E-mail</label>
+        <input name="login" type="email" ng-model="user.email" required autofocus>
+        <label>Password</label>
+        <input name="pass" type="password" ng-model="user.password" required>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary login">Sign in</button>
+        <button class="btn clear" ng-click="clearForm()">Clear</button>
+        <button class="btn btn-warning cancel" ng-click="cancelLogin()">Cancel</button>
+    </div>
+
+</form>

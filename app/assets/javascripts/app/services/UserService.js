@@ -18,8 +18,10 @@
             
             /* Use this for real authentication
              ----------------------------------------------*/
-            $http.post(config + '/login', { login: username, password: password })
+            $http.post(config + '/sessions', { login: username, password: password })
                 .success(function (response) {
+                    //service.currentUser = response.user;
+                    //console.log(response)
                     callback(response);
                 })
                 .error(function (response){
@@ -30,6 +32,8 @@
 
         function SetCredentials(access_token) {
             $rootScope.globals = {currentUser:{access_token:access_token}};
+           // $rootScope.globals.currentUser = { access_token:access_token} ;
+            $cookieStore.put('globals',$rootScope.globals);
         }
         function SetUserRole(access_token) {
             $http.get(config+"/get_user?access_token="+access_token)
