@@ -1,16 +1,41 @@
-window.LoginCtrl = ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
+window.LoginCtrl = ['$scope', '$http', '$location', 'UserService', 'config', 'security', function($scope, $http, $location, UserService, config, security) {
+  
+  // Login
   $scope.login = function() {
-		$scope.loginProcess = true;
 		UserService.Login($scope.user.email, $scope.user.password, function (response) {
 			if (response.success) {
       	UserService.SetCredentials(response.access_token);
-      	// UserService.SetUserRole(response.access_token);
-      	$scope.loginProcess = false;
       	$location.path('/info');
 			}else{
-				$scope.loginProcess = false;
 				alert(response.error)
 			}
 		})
+  };
+
+  // Logout
+  $scope.logout = function(){  	
+  	UserService.Logout($scope.globals.currentUser.access_token, function(response){
+  		if(response.success){
+  			$location.path('/login')
+  		}else{
+  			$location.path('/')
+  		}  		
+  	})
+  };
+
+  // Signup 
+  $scope.signup = function(){
+  	UserService.Signup($scope.user, function(response){
+  		if (response.success){
+  			$location.path('/login')
+  		}else{
+  			$location.path('/')
+  		}
+  	})
+  };
+
+  // Clear Form
+  $scope.clearForm = function(){
+  	$scope.user = {};
   }
 }];

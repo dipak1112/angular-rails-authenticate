@@ -1,54 +1,61 @@
 'use strict';
+  angular.module('app')
+    .factory('UserService', function ($rootScope,$http,config,$cookieStore,$location) {        
+      var service               = {};
+      service.Login             = Login;
+      service.Logout            = Logout;
+      service.Signup            = Signup;
+      service.SetCredentials    = SetCredentials;
+      service.ClearCredentials  = ClearCredentials;
+      service.isAuthenticated   = isAuthenticated;
 
- angular.module('app')
-    .factory('UserService', function ($rootScope,$http,config,$cookieStore,$location) {
-        
-        
-        
-        
-        var service = {};
+      return service;
 
-        service.Login = Login;
-        service.SetCredentials = SetCredentials;
-        service.ClearCredentials = ClearCredentials;
-       // service.SetUserRole = SetUserRole;
-       return service;
+      function Login(username, password, callback) {
+        $http.post(config + '/sessions', { login: username, password: password })
+        .success(function (response) {
+          callback(response);
+        })
+        .error(function (response){
+          callback(response);
+        });
+      };
 
-        function Login(username, password, callback) {
-            
-            /* Use this for real authentication
-             ----------------------------------------------*/
-            $http.post(config + '/sessions', { login: username, password: password })
-                .success(function (response) {
-                    //service.currentUser = response.user;
-                    //console.log(response)
-                    callback(response);
-                })
-                .error(function (response){
-                    callback(response);
-                });
+      function Logout(access_token, callback){
+        $http.delete(config + '/logout/' + access_token)
+        .success(function(response){
+          ClearCredentials()
+          callback(response)
+        }).error(function(response){          
 
-        }
+        });
+      };
 
-        function SetCredentials(access_token) {
-            $rootScope.globals = {currentUser:{access_token:access_token}};
-           // $rootScope.globals.currentUser = { access_token:access_token} ;
-            $cookieStore.put('globals',$rootScope.globals);
-        }
-        function SetUserRole(access_token) {
-            $http.get(config+"/get_user?access_token="+access_token)
-                .success(function(data) {
-                    $rootScope.globals.currentUser = { access_token:access_token,role_id:data.user.role.id} ;
-                    $cookieStore.put('globals',$rootScope.globals);
-                    $rootScope.userRole = $rootScope.globals.currentUser.role_id;
-                });
-        }
-       
+      function Signup(user, callback){
+        $http.post(config + '/registrations', {user})
+        .success(function(response){
+          console.log(response)
+          callback(response);
+        })
+        .error(function(response){
+          callback(response);
+        });
+      };
 
-        function ClearCredentials() {
-            $rootScope.globals = {};
-            $cookieStore.remove('globals');
-            //$http.defaults.headers.common.Authorization = 'Basic';
-        }
-        
-});
+      function SetCredentials(access_token) {
+        $http.get(config+"/current_user?access_token="+access_token)
+        .success(function(response) {
+          $rootScope.globals.currentUser = response;
+          $cookieStore.put('globals',$rootScope.globals);
+        });
+      }
+     
+      function ClearCredentials() {
+        $rootScope.globals = {};
+        $cookieStore.remove('globals');
+      }
+
+      function isAuthenticated() {
+        return !!$rootScope.globals.currentUser
+      }
+    });

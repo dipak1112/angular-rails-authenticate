@@ -7,6 +7,13 @@ class Api::V1::RegistrationsController < Api::V1::BaseController
 		@user.skip_confirmation!
 		if @user.save
 			@auth_token = @user.auth_tokens.create(authentication_token: AuthToken.generate_unique_token)
+      render  status: 200, json: { 
+        success: true, 
+        info: "SignUp", 
+        user: @user, 
+        access_token: @auth_token.authentication_token, 
+        auth_token: @auth_token.authentication_token
+      }
 		else
 			render_json({
 				result: {

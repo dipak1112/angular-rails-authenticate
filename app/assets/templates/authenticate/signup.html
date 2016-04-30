@@ -1,0 +1,37 @@
+<h1>Sign Up</h1>
+<h2>{{message}}</h2>
+
+<div class="alert alert-warning" ng-show="authReason">
+  {{authReason}}
+</div>
+
+<div class="alert alert-error" ng-show="authError">
+  {{authError}}
+</div>
+
+<div class="alert alert-info">Please enter your signup details</div>
+
+<form name="form" ng-submit="signup()" role="form" data-ng-controller= 'LoginCtrl'>
+  <label>First Name</label>
+  <input name="firstname" type='text' ng-model='user.firstname' required autofocus> </input>
+
+  <label>Last Name</label>
+  <input name="lastname" type='text' ng-model='user.lastname' required autofocus> </input>
+
+  <label>E-mail</label>
+  <input name="email" type="email" ng-model='user.email' required>
+  
+  <label>Password</label>
+  <input name="password" type="password" ng-model="user.password" required>
+  
+  <label>Password Confirmation</label>
+  <input name="password_confirmation" type="password" ng-model="user.password_confirmation" required>
+
+  <div class="clearfix"></div>
+  <hr>
+
+  <button class="btn btn-primary login">Sign Up</button>
+  <button class="btn clear" ng-click="clearForm()">Clear</button>
+  <button class="btn btn-warning cancel" ng-click="cancelLogin()">Cancel</button>
+  
+</form>

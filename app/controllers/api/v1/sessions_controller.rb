@@ -3,17 +3,19 @@ class Api::V1::SessionsController < Api::V1::BaseController
   before_filter :login_required, only: [:logout]
 
   def current_user
-    user = User.find(2)
-    auth_token = user.auth_tokens.last
-    
-      render  status: 200, json: { 
-        success: true, 
-        info: "Logged in", 
-        user: user, 
-        access_token: auth_token.authentication_token, 
-        auth_token: auth_token.authentication_token
-      }
+    auth_token  = AuthToken.find_by(authentication_token: params[:access_token])
+    user        = auth_token.user
 
+    render  status: 200, json: { 
+      success: true, 
+      info: "User", 
+      email: user.email,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      username: user.username,
+      access_token: auth_token.authentication_token, 
+      auth_token: auth_token.authentication_token
+    }
   end
 
   def create ## Login

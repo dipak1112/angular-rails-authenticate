@@ -28,20 +28,25 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
     templateUrl: ASSETS['sites_form']
   }).
   when('/signup', {
-    controller: 'SignUpCtrl',
+    controller: 'LoginCtrl',
     templateUrl: ASSETS['signup']
   }).
   when('/login', {
     controller: 'LoginCtrl',
     templateUrl: ASSETS['login']
   }).
+  when('/logout', {
+    controller: 'LoginCtrl',    
+  }).
   otherwise({
-    redirectTo:'/info'
+    redirectTo:'/'
   });
 }]);
 
-angular.module('app').run(['$rootScope', '$location', 'UserService', '$cookieStore', '$http', function($rootScope, $location, UserService, $cookieStore, $http) {
+angular.module('app').run(['$rootScope', '$location', 'UserService', '$cookieStore', '$http', 'security', function($rootScope, $location, UserService, $cookieStore, $http, security) {
   
+  //security.requestCurrentUser();
+
   $rootScope.globals = $cookieStore.get('globals') || {};
   
   if ($rootScope.globals.currentUser) {
@@ -54,12 +59,11 @@ angular.module('app').run(['$rootScope', '$location', 'UserService', '$cookieSto
     var loggedIn = $rootScope.globals.currentUser;
     
     if (restrictedPage && !loggedIn) {
-      $location.path('/signup');
+      $location.path('/login');
     }
   });
 
 }]);
-
 
 app.config(function($httpProvider) {
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
