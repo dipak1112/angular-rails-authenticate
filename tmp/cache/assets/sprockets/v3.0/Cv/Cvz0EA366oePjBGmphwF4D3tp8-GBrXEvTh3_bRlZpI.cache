@@ -1,27 +1,0 @@
-{:uriI"~file://app/assets/templates/login_form.html?type=text/html&id=751edcf20c505441d28256fd78b0e4de7ac3cd7a378badc17c71a78dc31ac04a:ET:load_pathI"app/assets/templates;T:filenameI")app/assets/templates/login_form.html;T:	nameI"login_form;T:logical_pathI"login_form.html;T:content_typeI"text/html;T:sourceI"‘<form name="form" novalidate class="login-form">
-    <div class="modal-header">
-        <h4>Sign Up</h4>
-    </div>
-    <div class="modal-body">
-        <div class="alert alert-warning" ng-show="authReason">
-            {{authReason}}
-        </div>
-        <div class="alert alert-error" ng-show="authError">
-            {{authError}}
-        </div>
-        <div class="alert alert-info">Please enter your login details</div>
-        <label>E-mail</label>
-        <input name="login" type="email" ng-model="user.email" required autofocus>
-        <label>Password</label>
-        <input name="pass" type="password" ng-model="user.password" required>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary login" ng-click="login()" ng-disabled='form.$invalid'>Sign in</button>
-        <button class="btn clear" ng-click="clearForm()">Clear</button>
-        <button class="btn btn-warning cancel" ng-click="cancelLogin()">Cancel</button>
-    </div>
-</form>;T:metadata{	:dependencieso:Set:
-@hash{
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"7file-digest://app/assets/templates/login_form.html;TT:charsetI"
-utf-8;F:digest"%E"¿smÏ^*2]‹‰YP∫≈lwáL7…	Ãπ9N“:lengthi‘:dependencies_digest"%3ÏÍ…ºåyL{–ZZ°+‚ù:Ö4ﬁ®Uõdí´:idI"E751edcf20c505441d28256fd78b0e4de7ac3cd7a378badc17c71a78dc31ac04a;F:
-mtimel+/W

@@ -1,28 +1,0 @@
-{:uriI"}file://app/assets/templates/info.html?type=text/html&id=4f8b6d46b8bddd4f8533b45d81189bfce883d23d30e5214026b7ac1984128ce5:ET:load_pathI"app/assets/templates;T:filenameI"#app/assets/templates/info.html;T:	nameI"	info;T:logical_pathI"info.html;T:content_typeI"text/html;T:sourceI"·<p>Hello Michael</p>
-
-<p>{{ message }}</p>
-
-<p example>click me</p>
-
-
-
-        <h5>{{ info.info }} </h5>
-        <p>{{ info.data.angular_js}}</p>
-        <p>by {{ info.data.author }}</p>
-        <p>Credits to:<ul>
-        <li ng-repeat="credit in info.data.credits">
-            {{ credit.name }} ~ {{ credit.msg}}
-        </li>
-        </ul>
-</p>
-
-<div ng-show='debug'>
-    <h5>Raw Info Service Response</h5>
-    <p>{{ info }} </p>
-</div>;T:metadata{	:dependencieso:Set:
-@hash{
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"1file-digest://app/assets/templates/info.html;TT:charsetI"
-utf-8;F:digest"%k‹q6HïMÄGõ%m*‡#vÙÇ»~Þ@wRÒA“ë
-:lengthi·:dependencies_digest"%ÕËçx6_ÒŠYñ\I;m†šotï
-TSÞ´ñ'4»Ø§:idI"E4f8b6d46b8bddd4f8533b45d81189bfce883d23d30e5214026b7ac1984128ce5;F:
-mtimel+£ÎW
